@@ -1,0 +1,18 @@
+{
+    "schema": "1.0",
+    "type": "whmcs-registrars",
+    "name": "PlanetHoster",
+    "category": "registrar",
+    "description": {
+        "name": "PlanetHoster"
+    },
+    "logo": {
+        "filename": "logo.png"
+    },
+    "authors": [
+        {
+            "name": "ModulesGarden",
+            "homepage": "https:\/\/www.modulesgarden.com\/"
+        }
+    ]
+}

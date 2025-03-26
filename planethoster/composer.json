@@ -1,0 +1,22 @@
+{
+    "name": "modulesgarden/planethoster",
+    "type": "project",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Jakub Filip",
+            "email": "jakub.fi@modulesgarden.com"
+        }
+    ],
+    "config": {
+        "platform-check": false
+    },
+    "autoload": {
+        "psr-4": {
+            "ModulesGarden\\PlanetHoster\\": "./"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.9"
+    }
+}
