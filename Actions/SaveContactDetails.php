@@ -69,6 +69,7 @@ class SaveContactDetails extends AbstractAction
             'british columbia' => 'BC',
             'manitoba' => 'MB',
             'new brunswick' => 'NB',
+            'newfoundland' => 'NL',
             'newfoundland and labrador' => 'NL',
             'northwest territories' => 'NT',
             'nova scotia' => 'NS',
