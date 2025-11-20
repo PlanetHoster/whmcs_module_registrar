@@ -42,6 +42,21 @@ class PlanetHoster
     /**
      * @param $sld
      * @param $tld
+     * @return mixed
+     */
+    public function TldPricing()
+    {
+        $content = $this->adapter->get('/v3/tlds/pricing', [
+            'currency_code' => 'EUR',
+            'mode' => 'whmcs'
+        ]);
+
+        return json_decode($content);
+    }
+
+    /**
+     * @param $sld
+     * @param $tld
      * @param $regperiod
      * @param $nameservers
      * @param $contact
@@ -70,8 +85,7 @@ class PlanetHoster
             'addtl_field' => $additionalFields
         ];
 
-        for($i = 0; $i < sizeof($nameservers); $i++)
-        {
+        for ($i = 0; $i < sizeof($nameservers); $i++) {
             $params[sprintf("ns%d", $i + 1)] = $nameservers[$i];
         }
 
@@ -229,8 +243,7 @@ class PlanetHoster
             'tld' => $tld,
         ];
 
-        for($i = 0; $i < sizeof($nameservers); $i++)
-        {
+        for ($i = 0; $i < sizeof($nameservers); $i++) {
             $params[sprintf("ns%d", $i + 1)] = $nameservers[$i];
         }
 
@@ -265,8 +278,7 @@ class PlanetHoster
             'domain' => $domain,
         ];
 
-        if($worldId)
-        {
+        if ($worldId) {
             $request['id'] = $worldId;
         }
 
@@ -285,12 +297,10 @@ class PlanetHoster
     {
         $rrsets = [];
 
-        foreach($records as $record)
-        {
+        foreach ($records as $record) {
             $value = [];
 
-            switch($record['type'])
-            {
+            switch ($record['type']) {
                 case 'A':
                 case 'AAAA':
                     $value['ip'] = $record['value'];
@@ -323,8 +333,7 @@ class PlanetHoster
             'rrsets' => $rrsets
         ];
 
-        if($worldId)
-        {
+        if ($worldId) {
             $request['id'] = $worldId;
         }
 

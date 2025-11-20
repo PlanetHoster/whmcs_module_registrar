@@ -1,7 +1,6 @@
 <?php
 
-if (!defined("WHMCS"))
-{
+if (!defined("WHMCS")) {
     die("This file cannot be accessed directly");
 }
 
@@ -25,6 +24,7 @@ use ModulesGarden\PlanetHoster\Actions\RegisterDomain;
 use ModulesGarden\PlanetHoster\Actions\ConfigValidate;
 use ModulesGarden\PlanetHoster\Actions\GetConfigArray;
 use ModulesGarden\PlanetHoster\Actions\MetaData;
+use ModulesGarden\PlanetHoster\Actions\GetTldPricing;
 
 /**
  * @return array
@@ -60,13 +60,10 @@ function PlanetHoster_config_validate(array $params)
  */
 function PlanetHoster_RegisterDomain(array $params)
 {
-    try
-    {
+    try {
         $action = new RegisterDomain($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'RegisterDomain', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -81,13 +78,10 @@ function PlanetHoster_RegisterDomain(array $params)
  */
 function PlanetHoster_TransferDomain(array $params)
 {
-    try
-    {
+    try {
         $action = new TransferDomain($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'TransferDomain', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -102,13 +96,10 @@ function PlanetHoster_TransferDomain(array $params)
  */
 function PlanetHoster_RenewDomain(array $params)
 {
-    try
-    {
+    try {
         $action = new RenewDomain($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'RenewDomain', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -123,13 +114,10 @@ function PlanetHoster_RenewDomain(array $params)
  */
 function PlanetHoster_GetNameservers(array $params)
 {
-    try
-    {
+    try {
         $action = new GetNameservers($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'GetNameservers', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -144,13 +132,10 @@ function PlanetHoster_GetNameservers(array $params)
  */
 function PlanetHoster_SaveNameservers(array $params)
 {
-    try
-    {
+    try {
         $action = new SaveNameservers($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'SaveNameservers', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -165,13 +150,10 @@ function PlanetHoster_SaveNameservers(array $params)
  */
 function PlanetHoster_GetContactDetails(array $params)
 {
-    try
-    {
+    try {
         $action = new GetContactDetails($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'GetContactDetails', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -186,13 +168,10 @@ function PlanetHoster_GetContactDetails(array $params)
  */
 function PlanetHoster_SaveContactDetails(array $params)
 {
-    try
-    {
+    try {
         $action = new SaveContactDetails($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'SaveContactDetails', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -207,13 +186,10 @@ function PlanetHoster_SaveContactDetails(array $params)
  */
 function PlanetHoster_GetEPPCode(array $params)
 {
-    try
-    {
+    try {
         $action = new GetEppCode($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'GetEPPCode', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -228,13 +204,10 @@ function PlanetHoster_GetEPPCode(array $params)
  */
 function PlanetHoster_GetRegistrarLock(array $params)
 {
-    try
-    {
+    try {
         $action = new GetRegistrarLock($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'GetRegistrarLock', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -249,13 +222,10 @@ function PlanetHoster_GetRegistrarLock(array $params)
  */
 function PlanetHoster_SaveRegistrarLock(array $params)
 {
-    try
-    {
+    try {
         $action = new SaveRegistrarLock($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'SaveRegistrarLock', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -270,13 +240,10 @@ function PlanetHoster_SaveRegistrarLock(array $params)
  */
 function PlanetHoster_GetDNS(array $params)
 {
-    try
-    {
+    try {
         $action = new GetDNS($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'GetDNS', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -291,13 +258,10 @@ function PlanetHoster_GetDNS(array $params)
  */
 function PlanetHoster_SaveDNS(array $params)
 {
-    try
-    {
+    try {
         $action = new SaveDNS($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'SaveDNS', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -312,13 +276,10 @@ function PlanetHoster_SaveDNS(array $params)
  */
 function PlanetHoster_CheckAvailability(array $params)
 {
-    try
-    {
+    try {
         $action = new CheckAvailability($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'CheckAvailability', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -333,13 +294,10 @@ function PlanetHoster_CheckAvailability(array $params)
  */
 function PlanetHoster_Sync(array $params)
 {
-    try
-    {
+    try {
         $action = new Sync($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'Sync', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
@@ -354,14 +312,29 @@ function PlanetHoster_Sync(array $params)
  */
 function PlanetHoster_TransferSync(array $params)
 {
-    try
-    {
+    try {
         $action = new TransferSync($params);
         return $action->execute();
-    }
-    catch(\Exception $e)
-    {
+    } catch (\Exception $e) {
         \logModuleCall('PlanetHoster', 'TransferSync', print_r($params, true), $e->getMessage(), $e->getMessage());
+
+        return [
+            'error' => $e->getMessage()
+        ];
+    }
+}
+
+/**
+ * @param array $params common module parameters
+ * @return array
+ */
+function PlanetHoster_GetTldPricing(array $params)
+{
+    try {
+        $action = new GetTldPricing($params);
+        return $action->execute();
+    } catch (\Exception $e) {
+        \logModuleCall('PlanetHoster', 'GetTldPricing', print_r($params, true), $e->getMessage(), $e->getMessage());
 
         return [
             'error' => $e->getMessage()
